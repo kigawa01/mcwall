@@ -1,1 +1,13 @@
 @charset "UTF-8";
+main {
+  max-width        : 1500px;
+  ul {
+    li {
+      width: 500px;
+      img {
+        width  : 100%;
+        height : auto;
+      }
+    }
+  }
+}

@@ -14,6 +14,8 @@ export default defineConfig({
       input: {
         common: path.resolve(cssDir, "common", "common.scss"),
         index: path.resolve(cssDir, "index", "index.scss"),
+        create: path.resolve(cssDir, "create", "create.scss"),
+        main: path.resolve(root, "script", "main.tsx"),
       },
       output: { // entry chunk assets それぞれの書き出し名の指定
         assetFileNames: (config) => {

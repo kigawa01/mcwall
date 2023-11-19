@@ -11,8 +11,14 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.4",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "sass": "^1.69.2",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5",
-    "sass": "^1.69.2"
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

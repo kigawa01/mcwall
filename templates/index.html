@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
-  <link rel="stylesheet" href="{% static "css/index/index.css" %}">
+  <link rel="stylesheet" href="{% static "css/index.css" %}">
 {% endblock %}
 {% block main %}
+
+  <ul>
+    {% for image in imagemodel_list %}
+      <li>
+        <img src="{{ image.file.url }}" alt="{{ image.name }} image"/>
+        <h3>{{ image.name }}</h3>
+        <p>{{ image.description }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
 {% endblock %}
