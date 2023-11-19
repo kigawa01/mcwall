@@ -1,0 +1,31 @@
+@font-face {
+  font-family : "UDEV Gothic 35";
+  src         : url("/static/font/UDEVGothic_v1.3.1/UDEVGothic35-Regular.ttf") format("truetype");
+}
+
+body {
+  font-family      : "UDEV Gothic 35", sans-serif;
+  font-size        : 1rem;
+  line-height      : 1;
+  height           : auto;
+  background-color : #eee;
+}
+
+* {
+  margin  : 0;
+  padding : 0;
+}
+
+a {
+  display         : inline-block;
+  text-decoration : none;
+  color           : unset;
+}
+
+h1, h2, h3, h4 {
+  font-weight : unset;
+}
+
+ul {
+  list-style : none;
+}

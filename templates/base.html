@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static "css/common.css" %}">
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}django work{% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+  </head>
+
+  <body>
+    <header>
+      {% block header %}
+
+        <nav>
+          {% block nav %}
+            <ul>
+              <li><h1><a href="{% url "mcwall:index" %}">Mcwall</a></h1></li>
+            </ul>
+
+          {% endblock %}
+        </nav>
+
+      {% endblock %}
+    </header>
+
+    <main>
+      {% block main %}{% endblock %}
+    </main>
+  </body>
+</html>
