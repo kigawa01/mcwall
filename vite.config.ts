@@ -13,7 +13,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         common: path.resolve(cssDir, "common", "common.scss"),
-        keijiban: path.resolve(cssDir, "keijiban", "keijiban.scss"),
+        index: path.resolve(cssDir, "index", "index.scss"),
       },
       output: { // entry chunk assets それぞれの書き出し名の指定
         assetFileNames: (config) => {

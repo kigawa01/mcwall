@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block main %}
+  <h2>背景投稿</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+{#    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}#}
+{#    <label>背景名<input type="text" name="name" required></label>#}
+{#    <label>説明<input type="text" name="description"></label>#}
+{#    <label>ファイル<input type="file" name="file" required></label>#}
+    {{ form.as_p }}
+    <button type="submit">write</button>
+  </form>
+{% endblock %}

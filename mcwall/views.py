@@ -1,6 +1,7 @@
+from django.urls import reverse_lazy
 from django.views import generic
 
-from mcwall import models
+from mcwall import models, forms
 
 
 # Create your views here.
@@ -8,3 +9,10 @@ from mcwall import models
 class Index(generic.ListView):
     template_name = "index.html"
     model = models.ImageModel
+
+
+class Create(generic.CreateView):
+    template_name = "create.html"
+    form_class = forms.ImageForm
+    model = models.ImageModel
+    success_url = reverse_lazy("mcwall:index")

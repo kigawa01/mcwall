@@ -2,4 +2,6 @@
 /db.sqlite3
 /node_modules/
 /mcwall/migrations/*.py
-/static/
+/static/css/
+/static/assets/
+/media/
