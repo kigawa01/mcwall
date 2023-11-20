@@ -1,7 +1,7 @@
 main {
+  flex             : auto;
   width            : 95%;
-  min-width        : fit-content;
-  min-height       : 100vh;
+  min-width        : 300px;
   margin           : 0 auto 0 auto;
   padding          : 70px 100px;
   background-color : #fff9;
@@ -18,11 +18,16 @@ main {
 
   .pages {
     display         : flex;
-    justify-content : space-around;
+    justify-content : center;
     width           : 100%;
 
     div {
       width : 150px;
+
+      a {
+        padding       : 0 10px;
+        border-bottom : 1px #111 solid;
+      }
     }
   }
 }
