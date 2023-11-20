@@ -19,7 +19,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
     DEBUG=(bool, True),
-    STORAGE=(str, os.path.join(BASE_DIR, "storage"))
+    STORAGE=(str, os.path.join(BASE_DIR, "storage")),
+    DB_NAME=(str, "mcwall"),
+    DB_USER=(str, "root"),
+    DB_PASS=(str, "root"),
+    DB_HOST=(str, "localhost"),
+    DB_PORT=(int, 3306),
+    ALLOWED_HOSTS=(str, "localhost")
 )
 
 # Quick-start development settings - unsuitable for production
@@ -31,7 +37,10 @@ SECRET_KEY = "django-insecure-07#o@o!qisereu=s6e0^mda5$gh70w%=w$iw3(954)7$qrx026
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    *str(env("ALLOWED_HOSTS")).split(",")
+]
+print(ALLOWED_HOSTS)
 
 # Application definition
 
@@ -81,8 +90,17 @@ WSGI_APPLICATION = "core.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        # "ENGINE": "django.db.backends.sqlite3",
+        'ENGINE': 'django.db.backends.mysql',
+        # "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": env("DB_NAME"),
+        'USER': env("DB_USER"),
+        'PASSWORD': env("DB_PASS"),
+        'HOST': env("DB_HOST"),
+        'PORT': env("DB_PORT"),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
