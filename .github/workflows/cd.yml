@@ -21,7 +21,7 @@ jobs:
 
       - name: edit manifest
         run: |
-          yq -i '.spec.template.spec.initContainers[0].env[0].value = "${{ github.sha }}"' ./fns/fns.yml
+          yq -i '.spec.template.spec.initContainers[0].env[0].value = "${{ github.sha }}"' ./mcwall/mcwall-test.yml
 
       - name: push
         run: |
