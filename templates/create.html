@@ -7,11 +7,34 @@
 {% block main %}
   <h2>背景投稿</h2>
   <form method="post" enctype="multipart/form-data">
+
+
     {% csrf_token %}
-    {% if form.errors %}<p class="err"><strong>{{ form.errors }}</strong></p>{% endif %}
-    <div><label for="name">背景名</label><input type="text" name="name" id="name" required></div>
-    <div><label for="description">説明</label><input type="text" name="description" id="description"></div>
-    <div><label for="file">ファイル</label><input type="file" name="file" id="file" required></div>
-    <button type="submit">投稿</button>
+    {% if form.errors %}
+      <div class="err"><strong>{{ form.errors }}</strong></div>{% endif %}
+
+
+    <div>
+      <label for="name">背景名</label>
+      <span class="separator">:</span>
+      <input type="text" name="name" id="name" required>
+    </div>
+
+    <div>
+      <label for="description">説明</label>
+      <span class="separator">:</span>
+      <textarea name="description" id="description"></textarea>
+    </div>
+
+    <div>
+      <label for="file">ファイル</label>
+      <span class="separator">:</span>
+      <input type="file" name="file" id="file" required>
+    </div>
+
+
+    <button type="submit">投稿する</button>
+
+
   </form>
 {% endblock %}

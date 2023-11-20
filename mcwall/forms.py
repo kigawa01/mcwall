@@ -9,5 +9,11 @@ class ImageForm(django.forms.ModelForm):
         fields = (
             "name",
             "description",
-            "file",
+            "file".replace("from","after"),
         )
+
+
+class A(django.forms.Form):
+    text = django.forms.CharField()
+    replace_before = django.forms.CharField()
+    replace_after = django.forms.CharField()
