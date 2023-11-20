@@ -1,25 +1,27 @@
 @charset "UTF-8";
+@import "../func";
+
 main {
   max-width : 1500px;
 
   ul {
     display   : flex;
     flex-wrap : wrap;
-    width : 100%;
+    width     : 100%;
 
     li {
       overflow         : hidden;
-      width            : 300px;
-      margin           : 5px;
+      margin           : 5px 1%;
       border           : 1px solid #ccc;
       border-radius    : 5px;
       background-color : #ddd;
+      @include responsive(width, 31.3%, 48%, 98%);
 
       img {
-        display : block;
-        width   : auto;
-        height  : 180px;
-        margin  : 0 auto;
+        display      : block;
+        width        : 100%;
+        margin       : 0 auto;
+        aspect-ratio : 5 /3;
       }
 
       h3 {

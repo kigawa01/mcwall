@@ -1,9 +1,12 @@
+@import "base";
+
 header {
   position         : fixed;
   top              : 0;
-  left: 0;
+  left             : 0;
   box-sizing       : border-box;
   width            : 100%;
+  min-width        : $minWidth;
   padding          : 8px;
   background-color : #fff9;
   box-shadow       : 1px 3px 5px #999;

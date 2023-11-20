@@ -4,10 +4,12 @@
   src         : url("/static/font/UDEVGothic_v1.3.1/UDEVGothic35-Regular.ttf") format("truetype");
 }
 
+$minWidth : 440px;
 body {
   font-family      : "UDEV Gothic 35", sans-serif;
   font-size        : 1rem;
   line-height      : 1;
+  min-width        : $minWidth;
   height           : auto;
   background-color : #ddd;
 }
@@ -37,4 +39,9 @@ h1, h2, h3, h4 {
 
 ul {
   list-style : none;
+}
+
+img {
+  display    : block;
+  object-fit : cover;
 }

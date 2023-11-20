@@ -1,11 +1,13 @@
+@import "../func";
+
 main {
+  @include responsive(padding, 70px 100px, 70px 60px, 70px 20px);
   flex             : auto;
   width            : 95%;
   min-width        : 300px;
   margin           : 0 auto 0 auto;
-  padding          : 70px 100px;
   background-color : #fff9;
-  box-shadow       : 1px 3px 5px #bbb;
+  box-shadow       : 1px 0 5px #bbb;
 
   h2 {
     font-size     : 2rem;

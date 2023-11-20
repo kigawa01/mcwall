@@ -22,7 +22,6 @@
 
     <div>
       {% if page_obj.has_previous %}
-        <!-- 現在よりも前のページが存在する場合 -->
         <a href="?page=1">1</a>
         <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
       {% endif %}
@@ -34,7 +33,6 @@
 
     <div>
       {% if page_obj.has_next %}
-        <!-- 現在よりも後のページが存在する場合 -->
         <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
         <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
       {% endif %}
