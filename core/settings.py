@@ -40,7 +40,6 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [
     *str(env("ALLOWED_HOSTS")).split(",")
 ]
-print(ALLOWED_HOSTS)
 
 # Application definition
 
