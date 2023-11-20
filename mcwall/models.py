@@ -1,5 +1,6 @@
 # Create your models here.
 from django.db import models
+from django.utils import timezone
 
 
 class ImageModel(models.Model):
@@ -7,3 +8,4 @@ class ImageModel(models.Model):
     name = models.CharField(max_length=64)
     description = models.CharField(max_length=1024, blank=True)
     file = models.ImageField()
+    created_at = models.DateTimeField(editable=False, default=timezone.now)

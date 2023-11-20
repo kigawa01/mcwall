@@ -5,6 +5,9 @@
 {% endblock %}
 {% block main %}
 
+  <h2>Mcwallとは</h2>
+  <p>mcwallとは、minecraftに関するPCの背景画像を投稿・ダウンロードできるサービスです。</p>
+  <h2>お勧め背景</h2>
   <ul>
     {% for image in imagemodel_list %}
       <li>
@@ -14,5 +17,29 @@
       </li>
     {% endfor %}
   </ul>
+
+  <div class="pages">
+
+    <div>
+      {% if page_obj.has_previous %}
+        <!-- 現在よりも前のページが存在する場合 -->
+        <a href="?page=1">1</a>
+        <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+      {% endif %}
+    </div>
+
+    <div>
+      Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+    </div>
+
+    <div>
+      {% if page_obj.has_next %}
+        <!-- 現在よりも後のページが存在する場合 -->
+        <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+        <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+      {% endif %}
+    </div>
+
+  </div>
 
 {% endblock %}

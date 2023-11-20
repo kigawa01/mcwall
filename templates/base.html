@@ -7,28 +7,32 @@
     <title>{% block title %}django work{% endblock %}</title>
     {% block head %}
     {% endblock %}
-  <script defer src="script/main.js"></script>
+    <script defer src="script/main.js"></script>
   </head>
 
   <body>
-    <header>
-      {% block header %}
 
-        <nav>
-          {% block nav %}
-            <ul>
-              <li><h1><a href="{% url "mcwall:index" %}">Mcwall</a></h1></li>
-              <li><a href="{% url "mcwall:create" %}">投稿</a></li>
-            </ul>
+    <div id="wrap">
+      <header>
+        {% block header %}
 
-          {% endblock %}
-        </nav>
+          <nav>
+            {% block nav %}
+              <ul>
+                <li><h1><a href="{% url "mcwall:index" %}">Mcwall</a></h1></li>
+                <li><a href="{% url "mcwall:create" %}">投稿</a></li>
+              </ul>
 
-      {% endblock %}
-    </header>
+            {% endblock %}
+          </nav>
 
-    <main>
-      {% block main %}{% endblock %}
-    </main>
+        {% endblock %}
+      </header>
+
+      <main>
+        {% block main %}{% endblock %}
+      </main>
+    </div>
+
   </body>
 </html>

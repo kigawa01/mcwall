@@ -9,6 +9,8 @@ from mcwall import models, forms
 class Index(generic.ListView):
     template_name = "index.html"
     model = models.ImageModel
+    ordering = "-created_at"
+    paginate_by = 12
 
 
 class Create(generic.CreateView):
