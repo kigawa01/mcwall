@@ -1,0 +1,52 @@
+@charset "UTF-8";
+@import "../func";
+
+main {
+  max-width : 1000px;
+
+  form {
+    > div {
+      font-size : 1.2rem;
+      @include responsive(display, flex, block, block);
+      margin    : 20px;
+
+      label {
+        display : block;
+        width   : 120px;
+        margin  : 10px 10px 0 10px;
+      }
+
+      input, textarea {
+        font-size : 1.2rem;
+        display   : block;
+        flex      : auto;
+        @include responsive(width, 100%, 100%, 100%);
+        margin    : 10px 10px 0 10px;
+      }
+
+      span {
+        @include responsive(display, inline, none, none);
+        margin : 10px 10px 0 10px;
+      }
+
+      textarea {
+        height : 200px;
+        resize : none;
+      }
+    }
+
+    button {
+      font-size   : 1.5rem;
+      font-weight : bold;
+      display     : block;
+      margin      : 0 auto;
+      padding     : 5px 40px;
+      border      : 1px solid #8888;
+      box-shadow  : 1.5px 2px 5px #bbb;
+
+      &:hover {
+        box-shadow : 2px 3px 5px #aaa, 2px 3px 5px #ddd inset
+      }
+    }
+  }
+}

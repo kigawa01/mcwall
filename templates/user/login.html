@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
-  <link rel="stylesheet" href="{% static "css/user/create.css" %}">
+  <link rel="stylesheet" href="{% static "css/create.css" %}">
 {% endblock %}
 
 {% block main %}
@@ -10,23 +10,21 @@
 
 
     {% csrf_token %}
+    {% if form.errors %}
+      <div class="err"><strong>{{ form.errors }}</strong></div>
+    {% endif %}
+
 
     <div>
       <label for="username">ユーザー名</label>
       <span class="separator">:</span>
       <input type="text" name="username" id="username" required>
-      {% if form.errors %}
-        <p class="err"><strong>{{ form.errors.username }}</strong></p>
-      {% endif %}
     </div>
 
     <div>
       <label for="password">パスワード</label>
       <span class="separator">:</span>
-      <input type="password" required name="password" id="password">
-      {% if form.errors %}
-        <p class="err"><strong>{{ form.errors.password }}</strong></p>
-      {% endif %}
+      <textarea name="password" id="password"></textarea>
     </div>
 
     <button type="submit">登録</button>

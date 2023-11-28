@@ -13,8 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         common: path.resolve(cssDir, "common", "common.scss"),
-        index: path.resolve(cssDir, "index", "index.scss"),
-        create: path.resolve(cssDir, "create", "create.scss"),
+        index: path.resolve(cssDir, "mcwall","index.scss"),
+        "create-mcwall": path.resolve(cssDir, "mcwall", "create.scss"),
+        "user/create": path.resolve(cssDir, "user", "create.scss"),
         main: path.resolve(root, "script", "main.tsx"),
       },
       output: { // entry chunk assets それぞれの書き出し名の指定
