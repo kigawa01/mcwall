@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 
 from user import forms, models
-from util.util import BaseView
+from util.util import BaseView, Hash
 
 
 class Create(BaseView):
@@ -15,7 +15,7 @@ class Create(BaseView):
         if form.is_valid():
             model = models.AppUser()
 
-            model.password = form.cleaned_data["password"]
+            model.password = Hash.hash(form.cleaned_data["password"])
             model.username = form.cleaned_data["username"]
             model.save()
             return redirect('mcwall:index')
