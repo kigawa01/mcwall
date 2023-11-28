@@ -9,7 +9,7 @@ class ImageForm(django.forms.ModelForm):
         fields = (
             "name",
             "description",
-            "file".replace("from","after"),
+            "file",
         )
 
 

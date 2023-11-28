@@ -9,7 +9,6 @@ main {
       font-size      : 1.2rem;
       @include responsive(display, flex, block, block);
       margin         : 20px;
-      vertical-align : top;
 
       label {
         display : block;

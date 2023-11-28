@@ -25,7 +25,7 @@ env = environ.Env(
     DB_PASS=(str, "root"),
     DB_HOST=(str, "localhost"),
     DB_PORT=(int, 3306),
-    ALLOWED_HOSTS=(str, "localhost")
+    ALLOWED_HOSTS=(str, "*")
 )
 
 # Quick-start development settings - unsuitable for production
@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "mcwall.apps.McwallConfig",
+    "mcwall",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -124,9 +125,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ja-jp"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Tokyo"
 
 USE_I18N = True
 
@@ -146,3 +147,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+AUTH_USER_MODEL = 'user.AppUser'
