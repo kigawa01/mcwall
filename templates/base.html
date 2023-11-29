@@ -21,9 +21,15 @@
               <ul>
                 <li><h1><a href="{% url "mcwall:index" %}">Mcwall</a></h1></li>
                 <li><a href="{% url "mcwall:create" %}">投稿</a></li>
-                <li><a href="{% url "user:create" %}">ユーザー登録</a></li>
               </ul>
-
+              <ul>
+                {% if  user.is_authenticated %}
+                  <li><a href="{% url "user:logout" %}">ログアウト</a></li>
+                {% else %}
+                  <li><a href="{% url "user:register" %}">ユーザー登録</a></li>
+                  <li><a href="{% url "user:login" %}">ログイン</a></li>
+                {% endif %}
+              </ul>
             {% endblock %}
           </nav>
 

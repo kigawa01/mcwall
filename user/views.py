@@ -1,11 +1,13 @@
+from django.contrib.auth import login, authenticate, logout
 from django.shortcuts import redirect
+from django.views import View
 
 from user import forms, models
-from util.util import BaseView, Hash
+from util.util import BaseView
 
 
-class Create(BaseView):
-    template_name = "user/create.html"
+class Register(BaseView):
+    template_name = "user/register.html"
 
     def get(self, request, *args, **kwargs):
         return self.render(kwargs, form=forms.UserRegisterForm())
@@ -20,12 +22,37 @@ class Create(BaseView):
             form.errors["username"] = f"'{username}'はすでに使用されています"
             return self.render(kwargs, form=form)
 
-        model = models.AppUser()
-        model.password = Hash.hash(form.cleaned_data["password"])
-        model.username = username
-        model.save()
+        user = models.AppUser()
+        user.set_password(form.cleaned_data["password"])
+        user.username = username
+        user.save()
+        login(request, user)
+
         return redirect('mcwall:index')
 
 
 class Login(BaseView):
     template_name = "user/login.html"
+
+    def get(self, request, *args, **kwargs):
+        return self.render(kwargs, form=forms.UserLoginForm())
+
+    def post(self, request, **kwargs):
+        form = forms.UserLoginForm(request.POST)
+        if not form.is_valid():
+            return self.render(kwargs, form=form)
+
+        user = authenticate(request, username=form.cleaned_data["username"], password=form.cleaned_data["password"])
+        if user is None:
+            form.errors["form"] = "ログインできませんでした"
+            return self.render(kwargs, form=form)
+        login(request, user)
+
+        return redirect('mcwall:index')
+
+
+# noinspection PyMethodMayBeStatic
+class Logout(View):
+    def get(self, request):
+        logout(request)
+        return redirect("mcwall:index")

@@ -21,5 +21,5 @@ from mcwall import views
 app_name = "mcwall"
 urlpatterns = [
     path("", views.Index.as_view(), name="index"),
-    path("create/", views.Create.as_view(), name="create"),
+    path("register/", views.Create.as_view(), name="create"),
 ]
