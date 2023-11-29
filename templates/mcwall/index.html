@@ -14,6 +14,7 @@
         <img src="{{ image.file.url }}" alt="{{ image.name }} image"/>
         <h3>{{ image.name }}</h3>
         <p>{{ image.description }}</p>
+        <p class="username">post by {{ image.user.username }}</p>
       </li>
     {% endfor %}
   </ul>
