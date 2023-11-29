@@ -1,14 +1,20 @@
+import abc
 import hashlib
 
-from django.views.generic import TemplateView
+from django.shortcuts import render
+from django.views import View
 
 
-class BaseView(TemplateView):
-    def render(self, kwargs: dict, **context):
-        return self.render_to_response({
-            **super().get_context_data(**kwargs),
-            **context
-        })
+class BaseView(View):
+    @property
+    @abc.abstractmethod
+    def template_name(self):
+        pass
+
+    def render(self, **context):
+        return render(self.request, self.template_name, context)
+
+
 class Hash:
     """hashを扱うクラス
     """

@@ -1,20 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
 {% block head %}
+  <link rel="stylesheet" href="{% static "css/content-page.css" %}">
   <link rel="stylesheet" href="{% static "css/mcwall-index.css" %}">
 {% endblock %}
 {% block main %}
 
   <h2>Mcwallとは</h2>
-  <p>mcwallとは、minecraftに関するPCの背景画像を投稿・ダウンロードできるサービスです。</p>
+  <p>mcwallとは、minecraftに関する画像を投稿・ダウンロードできるサービスです。</p>
   <h2>最近の投稿</h2>
-  <ul>
+  <ul class="flex-list">
     {% for image in imagemodel_list %}
       <li>
-        <img src="{{ image.file.url }}" alt="{{ image.name }} image"/>
-        <h3>{{ image.name }}</h3>
-        <p>{{ image.description }}</p>
-        <p class="username">post by {{ image.user.username }}</p>
+        <a href="{% url "mcwall:detail" image.uid %}">
+          <img src="{{ image.file.url }}" alt="{{ image.name }} image"/>
+          <h3>{{ image.name }}</h3>
+          <p>{{ image.description }}</p>
+          <p class="username">post by {{ image.user.username }}</p>
+        </a>
       </li>
     {% endfor %}
   </ul>

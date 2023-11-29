@@ -22,4 +22,5 @@ app_name = "mcwall"
 urlpatterns = [
     path("", views.Index.as_view(), name="index"),
     path("register/", views.Create.as_view(), name="create"),
+    path("detail/<uuid:uid>", views.Detail.as_view(), name="detail"),
 ]

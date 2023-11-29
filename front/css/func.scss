@@ -1,9 +1,0 @@
-@mixin responsive($prop,$def,$middle,$small) {
-  #{$prop}: #{$def};
-  @media (max-width : 1200px) {
-    #{$prop}: #{$middle};
-  }
-  @media (max-width : 800px) {
-    #{$prop}: #{$small};
-  }
-}

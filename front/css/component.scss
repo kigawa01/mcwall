@@ -1,0 +1,23 @@
+@mixin responsive($prop,$def,$middle,$small) {
+  #{$prop}: #{$def};
+  @media (max-width : 1200px) {
+    #{$prop}: #{$middle};
+  }
+  @media (max-width : 800px) {
+    #{$prop}: #{$small};
+  }
+}
+
+.button {
+  font-size   : 1.5rem;
+  font-weight : bold;
+  display     : block;
+  margin      : 0 auto;
+  padding     : 5px 40px;
+  border      : 1px solid #8888;
+  box-shadow  : 1.5px 2px 5px #bbb;
+
+  &:hover {
+    box-shadow : 2px 3px 5px #aaa, 2px 3px 5px #ddd inset
+  }
+}

@@ -1,0 +1,60 @@
+@import "component";
+ul.flex-list {
+  display   : flex;
+  flex-wrap : wrap;
+  width     : 100%;
+
+  li {
+    margin : 5px 1%;
+    @include responsive(width, 31.3%, 48%, 98%);
+
+    a {
+      position         : relative;
+      overflow         : hidden;
+      width            : 100%;
+      border           : 1px solid #ccc;
+      border-radius    : 5px;
+      background-color : #ddd;
+
+      img {
+        display      : block;
+        width        : 100%;
+        margin       : 0 auto;
+        aspect-ratio : 5 /3;
+      }
+
+      h3 {
+        font-size     : 1.3rem;
+        overflow      : hidden;
+        width         : fit-content;
+        max-width     : 100%;
+        margin        : 20px 10px;
+        padding       : 0 10px;
+        white-space   : nowrap;
+        text-overflow : ellipsis;
+        border-bottom : 2px #888 solid;
+      }
+
+      p {
+        overflow      : hidden;
+        margin        : 10px 15px 20px 15px;
+        white-space   : nowrap;
+        text-overflow : ellipsis;
+      }
+
+      p.username {
+        position         : absolute;
+        top              : 10px;
+        right            : 2%;
+        display          : block;
+        box-sizing       : border-box;
+        width            : fit-content;
+        max-width        : 95%;
+        margin           : 0;
+        padding          : 2px 5px 3px 5px;
+        background-color : #fff9;
+      }
+    }
+  }
+}
+

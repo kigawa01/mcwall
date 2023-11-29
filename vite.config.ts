@@ -13,7 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         common: path.resolve(cssDir, "common", "common.scss"),
-        "mcwall-index": path.resolve(cssDir, "page","mcwall-index.scss"),
+        "content-page": path.resolve(cssDir, "page", "content-page.scss"),
+        "mcwall-index": path.resolve(cssDir, "page", "mcwall-index.scss"),
+        "mcwall-detail": path.resolve(cssDir, "page", "mcwall-detail.scss"),
         "mcwall-create": path.resolve(cssDir, "page", "mcwall-create.scss"),
         "user": path.resolve(cssDir, "page", "user.scss"),
         main: path.resolve(root, "script", "main.tsx"),

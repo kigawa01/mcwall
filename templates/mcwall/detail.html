@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static "css/content-page.css" %}">
+  <link rel="stylesheet" href="{% static "css/mcwall-detail.css" %}">
+{% endblock %}
+{% block main %}
+
+  <section>
+    <h2>{{ image.name }}</h2>
+    <figure><img src="{{ image.file.url }}" alt="{{ image.name }} image"/></figure>
+    <a href="{{ image.file.url }}" download class="button">download</a>
+    <p>{{ image.description }}</p>
+  </section>
+
+{% endblock %}

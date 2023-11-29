@@ -1,7 +1,11 @@
+import uuid
+
 from django.urls import reverse_lazy
 from django.views import generic
 
 from mcwall import models, forms
+from mcwall.models import ImageModel
+from util.util import BaseView
 
 
 # Create your views here.
@@ -22,3 +26,10 @@ class Create(generic.CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class Detail(BaseView):
+    template_name = "mcwall/detail.html"
+
+    def get(self, request, uid: uuid.UUID):
+        return self.render(image=ImageModel.objects.get(pk=uid))

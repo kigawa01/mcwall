@@ -1,4 +1,4 @@
-@import "../func";
+@import "../component";
 
 main {
   @include responsive(padding, 70px 100px, 70px 60px, 70px 20px);
@@ -11,11 +11,14 @@ main {
 
   h2 {
     font-size     : 2.2rem;
-    width         : 350px;
+    width         : fit-content;
+    min-width     : 350px;
+    max-width     : 100%;
     margin-top    : 80px;
     margin-bottom : 50px;
-    padding       : 0 20px;
+    padding       : 0 70px 0 20px;
     border-bottom : 2px solid #888;
+    overflow-wrap : break-word;
   }
 
   .pages {
