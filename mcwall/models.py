@@ -4,6 +4,8 @@ import uuid
 from django.db import models
 from django.utils import timezone
 
+from user.models import AppUser
+
 
 class ImageModel(models.Model):
     uid = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
@@ -11,3 +13,4 @@ class ImageModel(models.Model):
     description = models.CharField(max_length=1024, blank=True)
     file = models.ImageField()
     created_at = models.DateTimeField(editable=False, default=timezone.now)
+    user = models.ForeignKey(AppUser, on_delete=models.CASCADE)

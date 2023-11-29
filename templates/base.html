@@ -20,7 +20,9 @@
             {% block nav %}
               <ul>
                 <li><h1><a href="{% url "mcwall:index" %}">Mcwall</a></h1></li>
-                <li><a href="{% url "mcwall:create" %}">投稿</a></li>
+                {% if  user.is_authenticated %}
+                  <li><a href="{% url "mcwall:create" %}">投稿</a></li>
+                {% endif %}
               </ul>
               <ul>
                 {% if  user.is_authenticated %}

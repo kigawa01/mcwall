@@ -18,3 +18,7 @@ class Create(generic.CreateView):
     form_class = forms.ImageForm
     model = models.ImageModel
     success_url = reverse_lazy("mcwall:index")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
