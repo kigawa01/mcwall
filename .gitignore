@@ -1,7 +1,6 @@
 /venv/
 /db.sqlite3
 /node_modules/
-/*/migrations/*.py
 /static/css/
 /static/assets/
 /media/
